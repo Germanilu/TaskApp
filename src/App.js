@@ -2,7 +2,6 @@
 import './App.css';
 import './Global.scss'
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
-import Header from './component/Header/Header'
 import Home from './container/Home/Home'
 import Register from './container/User/Register/Register'
 import Login from './container/User/Login/Login'
@@ -10,7 +9,6 @@ import GroupView from './container/GroupView/GroupView';
 function App() {
   return (
     <BrowserRouter>
-    <Header/>
       <Routes>
         <Route path="/" element= {<Home/>}/>
         <Route path="/register" element= {<Register/>}/>

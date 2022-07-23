@@ -62,10 +62,13 @@ import { login, logingUser, loginUser, userData } from '../userSlice';
 
      return (
          <div className='loginDesign'>
+            <h1>Welcome to MyTask</h1>
             <div className="containerLogin">
+                <h2 className='h2Title'>Login</h2>
                 <input className='inputLogin' type="email" name='email' title='email' placeholder='Email...' onChange={updateCredentials} />
                 <input className='inputLogin'type="password" name='password' title='password' placeholder='Password...' onChange={updateCredentials} />
                 <div className="buttonLogin" onClick={() => login()}>Login</div>
+                <p>Not register yet? <a href="/register">Click Here!</a></p>
             </div>
          </div>
      )

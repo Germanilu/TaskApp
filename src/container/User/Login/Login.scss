@@ -5,6 +5,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
 }
 
 .containerLogin{
@@ -20,11 +21,20 @@
     gap: 1em;
 }
 
+.h2Title{
+    margin:-2em 0 1em 0;
+}
+
 .inputLogin{
     width: 40%;
     height: 7%;
     border-radius: 0.5em;
     border: 1px solid var(--pricol3);
+}
+
+a{
+    text-decoration: none;
+    color: var(--pricol3);
 }
 
 .buttonLogin{
