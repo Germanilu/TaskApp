@@ -1,0 +1,26 @@
+*{
+    // outline: 1px solid red;
+}
+
+.headerDesign{
+    background-color: var(--pricol4);
+    height: 5em;
+    border-bottom: 2px solid var(--pricol1);
+}
+
+.navbar{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    
+}
+
+.aLink{
+    padding: 1em;
+    margin-right: 2em;
+    text-decoration: none;
+    color: var(--pricol3);
+    font-weight: 500;
+}
