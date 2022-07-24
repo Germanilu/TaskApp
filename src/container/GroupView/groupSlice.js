@@ -19,8 +19,8 @@ export const groupSlice = createSlice({
     },
 });
 
+//Exporto el objeto group desde redux
 export const idTitle = (e) => (dispatch) => {
-    console.log("Estoy en redux y soy e", e)
     dispatch(editText(e))
 }
 

@@ -70,14 +70,10 @@ const GroupView = () => {
         }
     }
 
-
+    //Con esta funcion enseño el box y envio a redux el objeto group
     const editGroup = (e) => {
         setShowBoxTitle(!showBoxTitle)
-        console.log("Soy id en editgroup function",e)
-        dispatch(idTitle(e))
-
-
-       
+        dispatch(idTitle(e))   
     }
 
      return (
