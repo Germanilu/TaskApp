@@ -20,7 +20,7 @@ const GroupView = () => {
     },[])
 
     useEffect(() => {
-        
+        getGroup()
     })
 
     const getGroup = async() => {
@@ -30,7 +30,8 @@ const GroupView = () => {
             };
             let result = await axios.get('https://mytask2do.herokuapp.com/api/group',config )
             setShowGroup( result.data.data)
-            console.log(result.data.data)
+            setMsgError("")
+            
             
             if(result.data.data.length == 0){
                 setMsgError(`Looks like you didn't created any group yet.... Click on the button below and let Start creating a New Group!`)
