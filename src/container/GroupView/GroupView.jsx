@@ -4,6 +4,7 @@ import axios from 'axios'
 import { useSelector } from 'react-redux';
 import { userData } from '../User/userSlice';
 import Box from '../../component/Box/Box'
+import EditGroupTitle from '../../component/EditGroupTitle/EditGroupTitle'
 import { useNavigate } from 'react-router-dom';
 
 
@@ -16,16 +17,20 @@ const GroupView = () => {
     const [showGroup, setShowGroup] = useState([])
     const [msgError, setMsgError] = useState("")
     const [showBox, setShowBox] = useState(false)
+    const [showBoxTitle, setShowBoxTitle] = useState(false)
+
+
+
+    useEffect(() => {
+        getGroup()
+        
+    },[])
 
     useEffect(() => {
         getGroup()
         if(credentials.token == ""){
             navigate('/login')
         }
-    },[])
-
-    useEffect(() => {
-        getGroup()
         
     })
 
@@ -49,6 +54,25 @@ const GroupView = () => {
         }
     }
 
+    const deleteGroup = async(e) => {
+        try {
+            let config = {
+                headers: { Authorization: `Bearer ${credentials.token}` }
+            };
+
+            let result = await axios.delete(`https://mytask2do.herokuapp.com/api/group/id=${e}`,config)
+            console.log(result)
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
+
+    const editGroup = (e) => {
+        console.log(e)
+       setShowBoxTitle(!showBoxTitle)
+    }
+
      return (
          <div className='designGroup'>
             <h1>Groups</h1>
@@ -61,9 +85,11 @@ const GroupView = () => {
                         
                             return (
                                 <div className="cardGroup" key={group._id}>{group.groupTitle}
+                                {showBoxTitle? <EditGroupTitle key={group._id}></EditGroupTitle> : null}
                                     <div className="containerButtonCard">
-                                        <div className="buttonCardGroup">Edit</div>
-                                        <div className="buttonCardGroup">Delete</div>
+                                    
+                                        <div className="buttonCardGroup" onClick={() => editGroup(group._id)}>Edit </div>
+                                        <div className="buttonCardGroup" onClick={() => deleteGroup(group._id)}>Delete</div>
                                     </div>
                                 </div>
                             )
