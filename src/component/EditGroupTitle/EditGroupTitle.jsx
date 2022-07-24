@@ -1,13 +1,13 @@
 import React, {useState} from 'react';
 import './EditGroupTitle.scss'
-import axios from 'axios'
 import { useSelector } from 'react-redux';
 import { userData } from '../../container/User/userSlice';
 import { useNavigate } from 'react-router-dom';
+import {idData} from '../../container/GroupView/groupSlice'
 
 
 const EditGroupTitle = () => {
-
+    let id = useSelector(idData)
     let credentials = useSelector(userData)
     let navigate = useNavigate()
     const [nameGroup, setNameGroup] = useState()
@@ -19,8 +19,7 @@ const EditGroupTitle = () => {
     }
 
     const ChangeGroupTitle = async() => {
-        
-        
+        console.log("Estoy en editgroupTitle y soy group",id)
     }
 
 

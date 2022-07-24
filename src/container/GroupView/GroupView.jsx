@@ -1,18 +1,21 @@
 import React, { useState, useEffect } from 'react';
 import './GroupView.scss'
 import axios from 'axios'
-import { useSelector } from 'react-redux';
+import {useDispatch, useSelector } from 'react-redux';
 import { userData } from '../User/userSlice';
 import Box from '../../component/Box/Box'
 import EditGroupTitle from '../../component/EditGroupTitle/EditGroupTitle'
 import { useNavigate } from 'react-router-dom';
+import {idTitle} from '../GroupView/groupSlice'
+
+
 
 
 const GroupView = () => {
 
     let credentials = useSelector(userData)
     let navigate = useNavigate()
-
+    const dispatch = useDispatch();
     //hooks
     const [showGroup, setShowGroup] = useState([])
     const [msgError, setMsgError] = useState("")
@@ -69,8 +72,12 @@ const GroupView = () => {
 
 
     const editGroup = (e) => {
-        console.log(e)
-       setShowBoxTitle(!showBoxTitle)
+        setShowBoxTitle(!showBoxTitle)
+        console.log("Soy id en editgroup function",e)
+        dispatch(idTitle(e))
+
+
+       
     }
 
      return (
@@ -85,10 +92,10 @@ const GroupView = () => {
                         
                             return (
                                 <div className="cardGroup" key={group._id}>{group.groupTitle}
-                                {showBoxTitle? <EditGroupTitle key={group._id}></EditGroupTitle> : null}
+                                {showBoxTitle? <EditGroupTitle/> : null}
                                     <div className="containerButtonCard">
-                                    
-                                        <div className="buttonCardGroup" onClick={() => editGroup(group._id)}>Edit </div>
+                                        <div className="buttonCardGroup" onClick={() => editGroup(group)}>Edit </div>
+                                        
                                         <div className="buttonCardGroup" onClick={() => deleteGroup(group._id)}>Delete</div>
                                     </div>
                                 </div>
