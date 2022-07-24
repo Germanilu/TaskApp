@@ -6,6 +6,7 @@ import Home from './container/Home/Home'
 import Register from './container/User/Register/Register'
 import Login from './container/User/Login/Login'
 import GroupView from './container/GroupView/GroupView';
+import Task from './container/Task/Task'
 function App() {
   return (
     <BrowserRouter>
@@ -15,6 +16,7 @@ function App() {
         <Route path="/register" element= {<Register/>}/>
         <Route path="/login" element= {<Login/>}/>
         <Route path="/group" element= {<GroupView/>}/>
+        <Route path="/task" element= {<Task/>}/>
       </Routes>
     </BrowserRouter>
   );

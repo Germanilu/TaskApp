@@ -76,6 +76,11 @@ const GroupView = () => {
         dispatch(idTitle(e))   
     }
 
+    const enterGroup = (e) => {
+        dispatch(idTitle(e))
+        navigate('/task')
+    }
+
      return (
          <div className='designGroup'>
             <h1>Groups</h1>
@@ -90,8 +95,9 @@ const GroupView = () => {
                                 <div className="cardGroup" key={group._id}>{group.groupTitle}
                                 {showBoxTitle? <EditGroupTitle/> : null}
                                     <div className="containerButtonCard">
+
+                                        <div className="buttonCardGroup" onClick={() => enterGroup(group)}>View </div>
                                         <div className="buttonCardGroup" onClick={() => editGroup(group)}>Edit </div>
-                                        
                                         <div className="buttonCardGroup" onClick={() => deleteGroup(group._id)}>Delete</div>
                                     </div>
                                 </div>

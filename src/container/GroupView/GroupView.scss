@@ -36,12 +36,14 @@
     top: 1em;
     right: 1em;
     
+    
 }
 
 .buttonCardGroup{
     padding: 1em;
     border-radius: 50%;
     border: 1px solid black;
+    cursor: pointer;
 }
 
 
@@ -50,6 +52,7 @@
     padding: 0.5em;
     border-radius: 50%;
     border: 1px solid black;
+    cursor: pointer;
 }
 
 .msgErrorContainer{
