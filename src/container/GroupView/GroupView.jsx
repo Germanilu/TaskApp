@@ -4,11 +4,13 @@ import axios from 'axios'
 import { useSelector } from 'react-redux';
 import { userData } from '../User/userSlice';
 import Box from '../../component/Box/Box'
+import { useNavigate } from 'react-router-dom';
 
 
 const GroupView = () => {
 
     let credentials = useSelector(userData)
+    let navigate = useNavigate()
 
     //hooks
     const [showGroup, setShowGroup] = useState([])
@@ -17,10 +19,14 @@ const GroupView = () => {
 
     useEffect(() => {
         getGroup()
+        if(credentials.token == ""){
+            navigate('/login')
+        }
     },[])
 
     useEffect(() => {
         getGroup()
+        
     })
 
     const getGroup = async() => {
@@ -43,10 +49,6 @@ const GroupView = () => {
         }
     }
 
-
-
-
-
      return (
          <div className='designGroup'>
             <h1>Groups</h1>
@@ -58,7 +60,7 @@ const GroupView = () => {
                     showGroup.map((group) => {
                         
                             return (
-                                <div className="cardGroup">{group.groupTitle}
+                                <div className="cardGroup" key={group._id}>{group.groupTitle}
                                     <div className="containerButtonCard">
                                         <div className="buttonCardGroup">Edit</div>
                                         <div className="buttonCardGroup">Delete</div>

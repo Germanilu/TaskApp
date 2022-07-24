@@ -30,6 +30,7 @@ const Box = () => {
             console.log(result)
             navigate('/group')
             
+            
         } catch (error) {
             console.log(error)
         }
