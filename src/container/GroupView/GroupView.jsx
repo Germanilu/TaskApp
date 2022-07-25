@@ -25,13 +25,12 @@ const GroupView = () => {
 
 
     useEffect(() => {
-        getGroup()
         
     },[])
 
     useEffect(() => {
         getGroup()
-        if(credentials.token == ""){
+        if(credentials.token === ""){
             navigate('/login')
         }
         
@@ -47,7 +46,7 @@ const GroupView = () => {
             setMsgError("")
             
             
-            if(result.data.data.length == 0){
+            if(result.data.data.length === 0){
                 setMsgError(`Looks like you didn't created any group yet.... Click on the button below and let Start creating a New Group!`)
             }
             

@@ -24,12 +24,12 @@ const Task = () => {
 
 
     useEffect(() => {
-        getTask()
+        
     },[])
 
     useEffect(() => {
         getTask()
-        if(credentials.token == ""){
+        if(credentials.token === ""){
             navigate('/login')
         }
     })
@@ -44,7 +44,7 @@ const Task = () => {
             setShowTask(result.data.data)
             setMsgError("")
 
-            if(result.data.data.length == 0){
+            if(result.data.data.length === 0){
                 setMsgError(`Looks like you didn't create any task yet... click the button below and let start create a new Task!`)
             }
         } catch (error) {
