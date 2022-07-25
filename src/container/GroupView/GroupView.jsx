@@ -102,8 +102,6 @@ const GroupView = () => {
                                     </div>
                                 </div>
                             )
-                        
-                       
                     })
                     
                 }

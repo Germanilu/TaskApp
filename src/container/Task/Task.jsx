@@ -1,17 +1,94 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './Task.scss'
 import { useSelector } from 'react-redux';
 import { userData } from '../../container/User/userSlice';
 import {idData} from '../../container/GroupView/groupSlice'
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 const Task = () => {
-    let group = useSelector(idData)
 
-   
-    console.log(group)
+
+    let group = useSelector(idData)
+    let credentials = useSelector(userData)
+    let navigate = useNavigate()
+
+    //Hooks
+
+    const [showTask,setShowTask] = useState([])
+    const [msgError, setMsgError] = useState("")
+
+
+
+
+    useEffect(() => {
+        getTask()
+    },[])
+
+    useEffect(() => {
+        if(credentials.token == ""){
+            navigate('/login')
+        }
+    })
+
+    const getTask = async() => {
+        try {
+            let config = {
+                headers: { Authorization: `Bearer ${credentials.token}` }
+            };
+
+            let result = await axios.get(`https://mytask2do.herokuapp.com/api/task/groupId=${group._id}`,config)
+            console.log("soy result", result)
+            setShowTask(result.data.data)
+            setMsgError("")
+
+            if(result.data.data.length == 0){
+                setMsgError(`Looks like you didn't create any task yet... click the button below and let start create a new Task!`)
+            }
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
+
      return (
-         <div className='designTask'>BIENVENIDO Al grupo:  {group.groupTitle}</div>
+         <div className='designTask'>
+            
+            <h1>{group.groupTitle}</h1>
+            
+            <div className="taskContainer">
+
+                { showTask.length !== 0 &&
+
+                    showTask.map((task) => {
+                        return(
+                            <div className="cardTask" key={task._id}>
+                                <div className="taskTitle">
+                                    {task.title}
+                                </div>
+                                <div className="taskDescription">
+                                    {task.description}
+                                </div>
+                                <div className="taskButton">
+                                    button
+                                </div>
+                               
+                                
+                            </div>
+                        )
+                    })
+
+                }
+
+
+
+
+
+
+            <div className="msgErrorContainer">{msgError}</div>
+            </div>
+            <div className="addTask">+</div>
+         </div>
      )
 }
 export default Task;

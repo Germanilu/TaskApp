@@ -1,0 +1,63 @@
+.designTask{
+    height: 100vh;
+    background-color: var(--pricol4);
+    padding-top: 0.1px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.titleGroup{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.taskContainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 80%;
+    min-height: 10em;
+    border: 1px solid blue;
+    margin-top: 5em;
+}
+.addTask{
+    margin-top: 5em;
+    border-radius: 50%;
+    border: 1px solid black;
+    padding: 1em;
+}
+
+.cardTask{
+    width: 100%;
+    height: 20em;
+    border: 1px solid red;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    text-align: left;
+    position: relative;
+    gap: 2em;
+}
+
+.taskTitle{
+    border: 1px solid black;
+    font-weight: 700;
+    
+}
+
+.taskDescription{
+    border: 1px solid black;
+}
+
+.taskButton{
+    position: absolute;
+    top: 1em;
+
+    right: 1em;
+    border: 1px solid black;
+}
