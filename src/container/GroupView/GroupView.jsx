@@ -3,7 +3,7 @@ import './GroupView.scss'
 import axios from 'axios'
 import {useDispatch, useSelector } from 'react-redux';
 import { userData } from '../User/userSlice';
-import Box from '../../component/Box/Box'
+import Box from '../../component/AddGroup/AddGroup'
 import EditGroupTitle from '../../component/EditGroupTitle/EditGroupTitle'
 import { useNavigate } from 'react-router-dom';
 import {idTitle} from '../GroupView/groupSlice'

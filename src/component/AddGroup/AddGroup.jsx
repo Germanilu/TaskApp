@@ -1,6 +1,6 @@
 
 import React, {  useState } from 'react';
-import './Box.scss'
+import './AddGroup.scss'
 import axios from 'axios'
 import { useSelector } from 'react-redux';
 import { userData } from '../../container/User/userSlice';

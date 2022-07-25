@@ -5,6 +5,7 @@ import { userData } from '../../container/User/userSlice';
 import {idData} from '../../container/GroupView/groupSlice'
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import AddTask from '../../component/AddTask/AddTask'
 
 const Task = () => {
 
@@ -17,6 +18,7 @@ const Task = () => {
 
     const [showTask,setShowTask] = useState([])
     const [msgError, setMsgError] = useState("")
+    const [showAddTask, setShowAddTask] = useState(false)
 
 
 
@@ -26,6 +28,7 @@ const Task = () => {
     },[])
 
     useEffect(() => {
+        getTask()
         if(credentials.token == ""){
             navigate('/login')
         }
@@ -38,7 +41,6 @@ const Task = () => {
             };
 
             let result = await axios.get(`https://mytask2do.herokuapp.com/api/task/groupId=${group._id}`,config)
-            console.log("soy result", result)
             setShowTask(result.data.data)
             setMsgError("")
 
@@ -51,11 +53,11 @@ const Task = () => {
     }
 
 
+
+
      return (
          <div className='designTask'>
-            
             <h1>{group.groupTitle}</h1>
-            
             <div className="taskContainer">
 
                 { showTask.length !== 0 &&
@@ -67,13 +69,13 @@ const Task = () => {
                                     {task.title}
                                 </div>
                                 <div className="taskDescription">
-                                    {task.description}
+                                    <p> {task.description} </p>
+                                   
                                 </div>
                                 <div className="taskButton">
-                                    button
+                                    <div className="button">Edit</div>
+                                    <div className="button">Delete</div>
                                 </div>
-                               
-                                
                             </div>
                         )
                     })
@@ -87,7 +89,8 @@ const Task = () => {
 
             <div className="msgErrorContainer">{msgError}</div>
             </div>
-            <div className="addTask">+</div>
+            {showAddTask? <AddTask/> : null}
+            <div className="addTask" onClick={() => setShowAddTask(!showAddTask)} >+</div>
          </div>
      )
 }
