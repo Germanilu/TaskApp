@@ -4,14 +4,13 @@ import axios from 'axios'
 import { useSelector } from 'react-redux';
 import { userData } from '../../container/User/userSlice';
 import {idData} from '../../container/GroupView/groupSlice'
-import { useNavigate } from 'react-router-dom';
+
 
 
 const AddTask = () => {
 
     let credentials = useSelector(userData)
     let group = useSelector(idData)
-    let navigate = useNavigate()
 
     const [newTask, setNewTask] = useState()
 
@@ -20,14 +19,10 @@ const AddTask = () => {
     }
 
     const createTask = async() => {
-        console.log("Task created")
-        
-
         try {
             let config = {
                 headers: { Authorization: `Bearer ${credentials.token}` }
             };
-
             let body = newTask
             let result = await axios.post(`https://mytask2do.herokuapp.com/api/newTask/groupId=${group._id}`,body,config)
             console.log(result)

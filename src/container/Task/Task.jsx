@@ -52,6 +52,20 @@ const Task = () => {
         }
     }
 
+    const deleteTask = async(e) => {
+        try {
+            let config = {
+                headers: { Authorization: `Bearer ${credentials.token}` }
+            };
+
+
+            let result = await axios.delete(`https://mytask2do.herokuapp.com/api/task/id=${e}`,config)
+            console.log(result)
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
 
 
 
@@ -74,7 +88,7 @@ const Task = () => {
                                 </div>
                                 <div className="taskButton">
                                     <div className="button">Edit</div>
-                                    <div className="button">Delete</div>
+                                    <div className="button" onClick={() => deleteTask(task._id)}>Delete</div>
                                 </div>
                             </div>
                         )

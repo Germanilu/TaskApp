@@ -26,10 +26,11 @@
     gap: 1em;
 }
 .addTask{
-    margin-top: 5em;
+    margin: 2em 0em;
     border-radius: 50%;
     border: 1px solid black;
     padding: 1em;
+    cursor: pointer;
 }
 
 .cardTask{
@@ -72,4 +73,5 @@
     padding: 0.5em;
     border: 1px solid black;
     border-radius: 50%;
+    cursor: pointer;
 }
