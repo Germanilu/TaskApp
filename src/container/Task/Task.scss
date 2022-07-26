@@ -8,6 +8,8 @@
     justify-content: center;
     flex-direction: column;
 }
+
+
 .titleGroup{
     width: 100%;
     display: flex;
@@ -75,4 +77,21 @@
     border: 1px solid black;
     border-radius: 50%;
     cursor: pointer;
+}
+
+.taskComplete{
+    position: absolute;
+    top: 1em;
+    left: 1em;
+    width: 10em;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: center;
+    gap: 0.5em;
+}
+
+.selectTask{
+    width: 1.5em;
+    height: 1.5em;
 }

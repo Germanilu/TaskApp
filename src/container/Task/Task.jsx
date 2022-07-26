@@ -7,6 +7,7 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import AddTask from '../../component/AddTask/AddTask'
 
+
 const Task = () => {
 
 
@@ -19,6 +20,7 @@ const Task = () => {
     const [showTask,setShowTask] = useState([])
     const [msgError, setMsgError] = useState("")
     const [showAddTask, setShowAddTask] = useState(false)
+   
 
 
 
@@ -66,6 +68,10 @@ const Task = () => {
         }
     }
 
+ 
+
+
+
 
      return (
          <div className='designTask'>
@@ -77,15 +83,19 @@ const Task = () => {
                     showTask.map((task) => {
                         return(
                             <div className="cardTask" key={task._id}>
+                                <div className="taskComplete">
+                                <input type="checkbox" className='selectTask'/>
+                                    <p>Complete!</p>
+
+                                </div>
+
                                 <div className="taskTitle">
                                     {task.title}
                                 </div>
                                 <div className="taskDescription">
                                     <p> {task.description} </p>
-                                   
                                 </div>
                                 <div className="taskButton">
-                                    <div className="button">Edit</div>
                                     <div className="button" onClick={() => deleteTask(task._id)}>Delete</div>
                                 </div>
                             </div>

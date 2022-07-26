@@ -92,7 +92,7 @@ const GroupView = () => {
                         
                             return (
                                 <div className="cardGroup" key={group._id}>{group.groupTitle}
-                                {showBoxTitle? <EditGroupTitle/> : null}
+                                {showBoxTitle? <EditGroupTitle /> : null}
                                     <div className="containerButtonCard">
 
                                         <div className="buttonCardGroup" onClick={() => enterGroup(group)}>View </div>
@@ -107,7 +107,7 @@ const GroupView = () => {
                 <div className="msgErrorContainer">{msgError}</div>
 
             </div>
-             {showBox? <Box/> : null}
+             {showBox? <Box setShowBox = {setShowBox} showBox={showBox}/> : null}
             <div className="buttonGroup" onClick={() => setShowBox(!showBox)}>+</div>
             
          </div>

@@ -6,7 +6,7 @@ import { useSelector } from 'react-redux';
 import { userData } from '../../container/User/userSlice';
 import { useNavigate } from 'react-router-dom';
 
-const Box = () => {
+const Box = ({setShowBox, showBox}) => {
 
     let credentials = useSelector(userData)
     let navigate = useNavigate()
@@ -19,6 +19,7 @@ const Box = () => {
     }
 
     const createGroup = async() => {
+        setShowBox(false)
         try {
             let config = {
                 headers: { Authorization: `Bearer ${credentials.token}` }
