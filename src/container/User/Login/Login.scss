@@ -8,21 +8,30 @@
     flex-direction: column;
 }
 
+h1{
+    color: var(--pricol2);
+}
+p{
+    color: var(--pricol2);
+}
+
 .containerLogin{
     width: 50%;
     height: 50%;
     border-top-left-radius: 100px;
     border-bottom-right-radius: 100px;
-    border: 2px solid var(--pricol3);
+    border: 2px solid var(--pricol2);
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
     gap: 1em;
+    background-color: #eca500;
 }
 
 .h2Title{
     margin:-2em 0 1em 0;
+    color: var(--pricol2);
 }
 
 .inputLogin{

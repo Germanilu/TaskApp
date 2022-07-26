@@ -18,4 +18,17 @@
     justify-content: center;
     flex-direction: column;
     gap: 1em;
+    background-color: #eca500;
+}
+
+
+.inputDesign{
+    width: 40%;
+    height: 2em;
+    border-radius: 0.5em;
+}
+
+.buttonRegister{
+    border: 1px solid black;
+    padding: 0.5em 1em;
 }
