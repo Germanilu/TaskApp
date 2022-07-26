@@ -67,8 +67,6 @@ const Task = () => {
     }
 
 
-
-
      return (
          <div className='designTask'>
             <h1>{group.groupTitle}</h1>
@@ -97,15 +95,19 @@ const Task = () => {
                 }
 
 
-
-
-
-
             <div className="msgErrorContainer">{msgError}</div>
             </div>
-            {showAddTask? <AddTask/> : null}
+            {/* Aqui le paso el hook al componente AddTask para luego modificarlo */}
+            {showAddTask? <AddTask setShowAddTask={setShowAddTask} showAddTask= {showAddTask}/> : null}
             <div className="addTask" onClick={() => setShowAddTask(!showAddTask)} >+</div>
          </div>
      )
+
+
+
+
+
+
+
 }
 export default Task;

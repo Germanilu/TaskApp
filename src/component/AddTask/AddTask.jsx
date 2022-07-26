@@ -6,19 +6,22 @@ import { userData } from '../../container/User/userSlice';
 import {idData} from '../../container/GroupView/groupSlice'
 
 
-
-const AddTask = () => {
+//Recibo 2 argumentos que es el hook de Task
+const AddTask = ({showAddTask, setShowAddTask}) => {
 
     let credentials = useSelector(userData)
     let group = useSelector(idData)
 
     const [newTask, setNewTask] = useState()
+    
 
     const updateData = (e) => {
         setNewTask({...newTask, [e.target.name]: e.target.value});
     }
 
     const createTask = async() => {
+        //Al hacer click modifico el hook de Task para que se cierre la ventana
+        setShowAddTask(false)
         try {
             let config = {
                 headers: { Authorization: `Bearer ${credentials.token}` }
